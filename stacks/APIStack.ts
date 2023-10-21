@@ -23,7 +23,7 @@ export function API({ stack }: StackContext) {
     },
     routes: {
       "GET /": "packages/functions/src/lambda.handler",
-      "GET /notes": "packages/functions/src/notes.createNoteHandler",
+      "PUT /notes": "packages/functions/src/notes.createNoteHandler",
     },
   });
 

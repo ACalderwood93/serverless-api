@@ -1,4 +1,4 @@
-name: Deploy SST Stack DEV
+name: Run Unit tests
 on:
   - push
 

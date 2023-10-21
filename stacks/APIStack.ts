@@ -17,6 +17,10 @@ export function API({ stack }: StackContext) {
 
   const api = new Api(stack, "api", {
     defaults: {
+      throttle: {
+        rate: 5,
+        burst: 10,
+      },
       function: {
         bind: [table],
       },

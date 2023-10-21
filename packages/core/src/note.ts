@@ -8,7 +8,7 @@ export enum NoteType {
 
 export const noteSchema = z.object({
   content: z.string().min(1),
-  username: z.string(),
+  username: z.string().min(1),
   noteType: z.nativeEnum(NoteType),
 });
 

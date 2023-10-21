@@ -42,6 +42,13 @@ export const getNotesByUserHandler = ApiHandler(async (_evt) => {
 
   const notes = await getNotesByUser(username);
 
+  if (!notes) {
+    return {
+      statusCode: 404,
+      body: "No notes found",
+    };
+  }
+
   return {
     statusCode: 200,
     headers: {

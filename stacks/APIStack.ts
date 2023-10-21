@@ -24,6 +24,8 @@ export function API({ stack }: StackContext) {
     routes: {
       "GET /": "packages/functions/src/lambda.handler",
       "PUT /notes": "packages/functions/src/notes.createNoteHandler",
+      "GET /notes/{username}":
+        "packages/functions/src/notes.getNotesByUserHandler",
     },
   });
 

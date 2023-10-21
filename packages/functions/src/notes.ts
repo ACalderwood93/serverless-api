@@ -1,4 +1,7 @@
-import { insertNote } from "./../../core/src/Data/Repositories/NoteRepository";
+import {
+  getNotesByUser,
+  insertNote,
+} from "./../../core/src/Data/Repositories/NoteRepository";
 import { ApiHandler } from "sst/node/api";
 import { Table } from "sst/node/table";
 import { API } from "../../../stacks/APIStack";
@@ -24,5 +27,22 @@ export const createNoteHandler = ApiHandler(async (_evt) => {
   await insertNote(note);
   return {
     statusCode: 201,
+  };
+});
+
+export const getNotesByUserHandler = ApiHandler(async (_evt) => {
+  const username = _evt.queryStringParameters?.username;
+  if (!username) {
+    return {
+      statusCode: 400,
+      body: "No username provided",
+    };
+  }
+
+  const notes = await getNotesByUser(username);
+
+  return {
+    statusCode: 200,
+    body: JSON.stringify(notes),
   };
 });

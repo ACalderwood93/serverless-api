@@ -1,7 +1,8 @@
+name: Deploy SST Stack DEV
 on:
   push:
     branches:
-      - "main"
+      - dev
 
 jobs:
   deploy:

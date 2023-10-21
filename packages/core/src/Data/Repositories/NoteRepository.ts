@@ -11,7 +11,7 @@ export const insertNote = async (input: NoteInput) => {
 
   await client
     .put({
-      TableName: Table.Notes.tableName,
+      TableName: (Table as any).Notes.tableName,
       Item: newNote,
     })
     .promise();
@@ -22,7 +22,7 @@ export const getNotesByUser = async (
 ): Promise<NoteEntity[]> => {
   const result = await client
     .query({
-      TableName: Table.Notes.tableName,
+      TableName: (Table as any).Notes.tableName,
       KeyConditionExpression: "user_name = :username",
       ExpressionAttributeValues: {
         ":username": username,

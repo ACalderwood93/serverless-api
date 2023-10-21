@@ -3,10 +3,7 @@ import {
   insertNote,
 } from "./../../core/src/Data/Repositories/NoteRepository";
 import { ApiHandler } from "sst/node/api";
-import { Table } from "sst/node/table";
-import { API } from "../../../stacks/APIStack";
 import { NoteInput, noteSchema } from "../../core/src/note";
-import { json } from "stream/consumers";
 export const createNoteHandler = ApiHandler(async (_evt) => {
   if (!_evt.body) {
     return {

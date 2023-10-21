@@ -22,6 +22,9 @@ export const createNoteHandler = ApiHandler(async (_evt) => {
     return {
       statusCode: 400,
       body: JSON.stringify(e),
+      headers: {
+        "Content-Type": "application/json",
+      },
     };
   }
 

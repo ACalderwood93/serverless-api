@@ -4,6 +4,7 @@ import {
 } from "./../../core/src/Data/Repositories/NoteRepository";
 import { ApiHandler } from "sst/node/api";
 import { NoteInput, noteSchema } from "../../core/src/note";
+import { NoteFactory } from "@serverless-api/core/Factories/NoteFactory";
 export const createNoteHandler = ApiHandler(async (_evt) => {
   if (!_evt.body) {
     return {
@@ -50,11 +51,12 @@ export const getNotesByUserHandler = ApiHandler(async (_evt) => {
     };
   }
 
+  const noteDtos = notes.map((note) => NoteFactory.createNoteDTO(note));
   return {
     statusCode: 200,
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(notes),
+    body: JSON.stringify(noteDtos),
   };
 });

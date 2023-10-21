@@ -9,6 +9,7 @@ export function API({ stack }: StackContext) {
 
   const api = new Api(stack, "api", {
     defaults: {
+      authorizer: "iam",
       function: {
         bind: [bus],
       },

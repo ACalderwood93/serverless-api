@@ -31,7 +31,8 @@ export const createNoteHandler = ApiHandler(async (_evt) => {
 });
 
 export const getNotesByUserHandler = ApiHandler(async (_evt) => {
-  const username = _evt.queryStringParameters?.username;
+  const username = _evt.pathParameters?.username;
+  console.log("path params", _evt.pathParameters);
   if (!username) {
     return {
       statusCode: 400,

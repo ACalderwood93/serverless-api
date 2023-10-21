@@ -4,7 +4,8 @@
   "type": "module",
   "scripts": {
     "test": "sst bind vitest",
-    "typecheck": "tsc -noEmit"
+    "typecheck": "tsc -noEmit",
+    "test:unit":"vitest"
   },
   "devDependencies": {
     "@types/node": "^20.8.7",

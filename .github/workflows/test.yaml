@@ -1,0 +1,21 @@
+name: Deploy SST Stack DEV
+on:
+  - push
+
+jobs:
+  test:
+    name: Deploy stack
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install packages
+        run: |
+          npm install -g pnpm
+          pnpm install
+      - name: Run tests
+        run: |
+          cd /packages/core
+          pnpm test:unit

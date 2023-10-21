@@ -44,6 +44,9 @@ export const getNotesByUserHandler = ApiHandler(async (_evt) => {
 
   return {
     statusCode: 200,
+    headers: {
+      "Content-Type": "application/json",
+    },
     body: JSON.stringify(notes),
   };
 });

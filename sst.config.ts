@@ -5,10 +5,10 @@ export default {
   config(_input) {
     return {
       name: "serverless-api",
-      region: "us-east-1",
+      region: "us-west-1",
     };
   },
   stacks(app) {
     app.stack(API);
-  }
+  },
 } satisfies SSTConfig;
